@@ -8,3 +8,14 @@ class Endereco:
         self._cep = cep
         self._cidade = cidade
         self._uf = uf
+
+    def __str__(self) -> str:
+        return (
+            f"Logradouro: {self._logradouro}"
+            f"\nNúmero: {self._numero}"
+            f"\nComplemento: {self._complemento}"
+            f"\nCEP: {self._cep}"
+            f"\nCidade: {self._cidade}"
+            f"\nEstado: {self._uf.nome}"
+            f"\nSigla: {self._uf.sigla}"
+        )
