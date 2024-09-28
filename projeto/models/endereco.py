@@ -1,6 +1,7 @@
 from projeto.models.enums.unidadefederativa import UnidadeFederativa
 
 class Endereco:
+    # Construtor
     def __init__(self, logradouro: str, numero: int, complemento: str, cep: str, cidade: str, uf: UnidadeFederativa) -> None:
         self._logradouro = self._verificar_logradouro(logradouro)
         self._numero = self._verificar_numero(numero)
@@ -73,7 +74,7 @@ class Endereco:
         if valor < 0:
             raise ValueError("O número não pode ser negativo")
     
-
+    # Similar ao ToString.
     def __str__(self) -> str:
         return (
             f"Logradouro: {self._logradouro}"
