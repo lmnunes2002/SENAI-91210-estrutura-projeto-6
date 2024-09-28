@@ -5,8 +5,8 @@ class Fornecedor(Juridica):
     # Construtor
     def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco, cnpj: str, inscricao_estadual: str, produto: str) -> None:
         super().__init__(id, nome, telefone, email, endereco, cnpj, inscricao_estadual)
-        self.produto = produto
-    
+        self.produto = self._verificar_produto(produto)
+
     # Método para verificação.
     def _verificar_id(self, valor):
         """Método auxiliar para verificação de id"""
@@ -14,7 +14,7 @@ class Fornecedor(Juridica):
         self.__verificar_id_vazio(valor)
 
         self.id = valor
-        return self.numero
+        return self.id
     
     # Método auxiliar. 
     def __verificar_id_tipo_invalido(self, valor):
@@ -97,3 +97,9 @@ class Fornecedor(Juridica):
         """Método auxiliar para verificação de produtos vazios"""
         if not valor.strip():
             raise TypeError("O produto não pode estar vazio")
+
+    # Similar ao ToString    
+    def apresentar(self):
+        return (
+            f"Nome: {self.nome}"
+        )

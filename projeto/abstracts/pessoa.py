@@ -1,12 +1,7 @@
 from abc import ABC, abstractmethod
-from models.endereco import Endereco
+from projeto.models.endereco import Endereco
 
 class Pessoa(ABC):
-    # Método abstrato.
-    @abstractmethod
-    def apresentar(self):
-        pass
-
     # Construtor
     def __init__(self, id: int, nome: str, telefone: str, email: str, endereco: Endereco) -> None:
         super().__init__()
@@ -16,10 +11,15 @@ class Pessoa(ABC):
         self.email = email
         self.endereco = endereco
 
+    # Método abstrato.
+    @abstractmethod
+    def apresentar(self):
+        pass
+
     # Similar ao ToString.
     def __str__(self) -> str:
         return (
-            "super().__str__()"
+            f"super().__str__()"
             f"\nCNPJ: {self.cnpj}"
             f"\nInscrição estadual: {self.inscricao_estadual}"
             )
