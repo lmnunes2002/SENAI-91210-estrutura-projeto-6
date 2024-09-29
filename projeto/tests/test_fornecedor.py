@@ -29,11 +29,11 @@ def test_inscricao_estadual_vazio_retorna_mensagem():
 
 def test_cnpj_vazio_retorna_mensagem():
     with pytest.raises(ValueError, match="O CNPJ não pode estar vazio."):
-        Fornecedor(1, "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "12.345.678/0001-90", "12345678", "frutas")
+        Fornecedor(1, "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "", "12345678", "frutas")
 
 def test_produto_tipo_invalido_retorna_mesnagem():
     with pytest.raises(TypeError, match="O produto deve ser um texto"):
-        Fornecedor(1, "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "", "12345678", 2)
+        Fornecedor(1, "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "12.345.678/0001-90", "12345678", 2)
 
 def test_inscricao_estadual_vazio_retorna_mensagem():
     with pytest.raises(ValueError, match="O produto não pode estar vazio"):
