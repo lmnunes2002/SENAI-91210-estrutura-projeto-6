@@ -47,7 +47,7 @@ class Fornecedor(Juridica):
     def __verificar_nome_vazio(self, valor):
         """Método auxiliar para verificar nomes vazios"""
         if not valor.strip():
-            raise TypeError("O nome não pode estar vazio.")
+            raise ValueError("O nome não pode estar vazio.")
     
      # Método para verificação.
     def _verificar_cnpj(self, valor):
@@ -61,7 +61,7 @@ class Fornecedor(Juridica):
     def __verificar_cnpj_vazio(self, valor):
         """Método auxiliar para verificar CNPJ's vazios"""
         if not valor.strip():
-            raise TypeError("O CNPJ não pode estar vazio.")
+            raise ValueError("O CNPJ não pode estar vazio.")
         
     # Método para verificação.
     def _verificar_inscricao_estadual(self, valor):
@@ -75,7 +75,7 @@ class Fornecedor(Juridica):
     def __verificar_inscricao_estadual_vazio(self, valor):
         """Método auxiliar para verificar Inscrições vazias"""
         if not valor.strip():
-            raise TypeError("A inscrição estadual não pode estar vazia.")
+            raise ValueError("A inscrição estadual não pode estar vazia.")
     
     # Método para verificação.
     def _verificar_produto(self, valor):
@@ -96,7 +96,7 @@ class Fornecedor(Juridica):
     def __verificar_produto_vazio(self, valor):
         """Método auxiliar para verificação de produtos vazios"""
         if not valor.strip():
-            raise TypeError("O produto não pode estar vazio")
+            raise ValueError("O produto não pode estar vazio")
 
     # Similar ao ToString    
     def apresentar(self):
