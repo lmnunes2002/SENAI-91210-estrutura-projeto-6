@@ -32,7 +32,7 @@ class Endereco:
     #         raise TypeError("O  não pode estar vazio.")
 
 
-     # Método para verificação.
+    # Método para verificação.
     def _verificar_logradouro(self, valor):
         """Método para verificação de logradouro"""
         self.__verificar_logradouro_tipo_invalido(valor)
