@@ -31,17 +31,17 @@ def test_endereco_valido(endereco_valido):
     assert endereco_valido._cidade == "Salvador"
     assert endereco_valido._uf == UnidadeFederativa.BAHIA.nome
 
-def test_enum_membros():
+def test_unidade_federativa_membros():
     assert UnidadeFederativa.BAHIA in UnidadeFederativa
     assert UnidadeFederativa.SAO_PAULO in UnidadeFederativa
     assert UnidadeFederativa.RIO_DE_JANEIRO in UnidadeFederativa
 
-def test_enum_nomes_valido():
+def test_unidade_federativa_nomes_valido():
     assert UnidadeFederativa.BAHIA.nome == "Bahia"
     assert UnidadeFederativa.RIO_DE_JANEIRO.nome == "Rio de Janeiro"
     assert UnidadeFederativa.SAO_PAULO.nome == "São Paulo"
 
-def test_enum_siglas_valido():
+def test_unidade_federativa_siglas_valido():
     assert UnidadeFederativa.BAHIA.sigla == "BA"
     assert UnidadeFederativa.RIO_DE_JANEIRO.sigla == "RJ"
     assert UnidadeFederativa.SAO_PAULO.sigla == "SP"

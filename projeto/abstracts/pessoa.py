@@ -29,13 +29,13 @@ class Pessoa(ABC):
     def __verificar_id_tipo_invalido(self, valor):
         """Método auxiliar para verificação de tipo para numero"""
         if not isinstance(valor, int):
-            raise TypeError("O ID deve ser um número")
+            raise TypeError("O ID deve ser um número.")
         
     # Método auxiliar.
     def __verificar_id_vazio(self, valor):
         """Método auxiliar para verificação de número negativo"""
         if valor < 0:
-            raise ValueError("O ID não pode ser negativo")
+            raise ValueError("O ID não pode ser negativo.")
         
      # Método para verificação.
     def _verificar_nome(self, valor):

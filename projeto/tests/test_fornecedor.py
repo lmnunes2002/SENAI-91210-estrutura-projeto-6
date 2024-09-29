@@ -8,11 +8,11 @@ def fornecedor_valido():
     return fornecedor
 
 def test_id_tipo_invalido_retorna_mensagem():
-    with pytest.raises(TypeError, match="O ID deve ser um número"):
+    with pytest.raises(TypeError, match="O ID deve ser um número."):
         Fornecedor("a", "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "12.345.678/0001-90", "12345678", "frutas")
 
 def test_id_vazio_retorna_mensagem():
-    with pytest.raises(ValueError, match="O ID não pode ser negativo"):
+    with pytest.raises(ValueError, match="O ID não pode ser negativo."):
         Fornecedor(-1, "Carlos Oliveira", "9876-5432", "carlos@email.com", endereco_valido, "12.345.678/0001-90", "12345678", "frutas")
 
 def test_nome_tipo_invalido_retorna_mensagem():
