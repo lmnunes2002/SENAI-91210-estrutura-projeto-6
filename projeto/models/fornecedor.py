@@ -9,7 +9,7 @@ class Fornecedor(Juridica):
 
     # Método para verificação.
     def _verificar_id(self, valor):
-        """Método auxiliar para verificação de id"""
+        """Método para verificação de id"""
         self.__verificar_id_tipo_invalido(valor)
         self.__verificar_id_vazio(valor)
 
