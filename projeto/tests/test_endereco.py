@@ -36,12 +36,10 @@ def test_unidade_federativa_membros():
     assert UnidadeFederativa.SAO_PAULO in UnidadeFederativa
     assert UnidadeFederativa.RIO_DE_JANEIRO in UnidadeFederativa
 
-def test_unidade_federativa_nomes_valido():
+def test_unidade_federativa_valores_validos():
     assert UnidadeFederativa.BAHIA.nome == "Bahia"
-    assert UnidadeFederativa.RIO_DE_JANEIRO.nome == "Rio de Janeiro"
-    assert UnidadeFederativa.SAO_PAULO.nome == "São Paulo"
-
-def test_unidade_federativa_siglas_valido():
     assert UnidadeFederativa.BAHIA.sigla == "BA"
+    assert UnidadeFederativa.RIO_DE_JANEIRO.nome == "Rio de Janeiro"
     assert UnidadeFederativa.RIO_DE_JANEIRO.sigla == "RJ"
+    assert UnidadeFederativa.SAO_PAULO.nome == "São Paulo"
     assert UnidadeFederativa.SAO_PAULO.sigla == "SP"

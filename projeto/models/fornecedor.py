@@ -28,7 +28,7 @@ class Fornecedor(Juridica):
         if not valor.strip():
             raise ValueError("O produto não pode estar vazio")
 
-    # Similar ao ToString    
+    # Instanciano método abstrato.    
     def apresentar(self):
         return (
             f"Nome: {self.nome}"

@@ -10,7 +10,7 @@ class Fisica(Pessoa):
         super().__init__(id, nome, telefone, email, endereco)
         self.sexo = sexo
         self.estado_civil = estado_civil
-        self.data_nascimento = self._data_nascimento(data_nascimento)
+        self.data_nascimento = self._verificar_data_nascimento(data_nascimento)
 
     # Método abstrato.
     @abstractmethod
@@ -18,25 +18,28 @@ class Fisica(Pessoa):
         pass
 
     # Método para verificação.
-    def _verificar_data_nasicmento(self, valor):
+    def _verificar_data_nascimento(self, valor):
         """Método para verificação do sexo"""
         self.__verificar_data_nascimento_tipo_invalido(valor)
         self.__verificar_data_nascimento_vazio(valor)
-        self.__verificar_valida(valor)
+        # self.__verificar_validacao(valor)
 
         self.data_nascimento = valor
         return valor
     
+    # Método auxiliar.
     def __verificar_data_nascimento_tipo_invalido(self, valor):
-        if not isinstance(valor, int):
+        if not isinstance(valor, str):
             raise TypeError("A data de nascimento deve ser númerica.")
-        
+
+    # Método auxiliar.    
     def __verificar_data_nascimento_vazio(self, valor):
         if not valor.strip():
             raise ValueError("A data de nascimento não pode estar vazia.")
-        
-    def __verificar_valida(self, valor):
-        if valor > 0 and valor < 18:
-            raise ValueError("A idade deve ser maior de 18.")
-        elif valor < 0:
-            raise ValueError("A idade deve ser positiva.")
+
+    # # Método auxiliar.    
+    # def __verificar_validacao(self, valor):
+    #     if valor > 0 and valor < 18:
+    #         raise ValueError("A idade deve ser maior de 18.")
+    #     elif valor < 0:
+    #         raise ValueError("A idade deve ser positiva.")
