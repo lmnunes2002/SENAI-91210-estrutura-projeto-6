@@ -34,3 +34,9 @@ class Engenheiro(Funcionario):
     def __verificar_crea_tam(self, valor):
         if len(valor) < 9 or len(valor) > 13:
             raise ValueError("O tamanho do CREA não pode ser menor de 9 caractéres, ou maior que 13 carácteres.")
+        
+    # Instanciando método abstrato.    
+    def apresentar(self):
+        return (
+            f"Nome: {self.nome}"
+        )
