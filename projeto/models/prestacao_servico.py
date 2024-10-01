@@ -12,7 +12,8 @@ class PrestacaoServico(Juridica):
     def _verificar_contrato_inicio(self, valor):
         """Método para verificação de inicio de contrato"""
         self.__verificar_contrato_inicio_tipo_invalido(valor)
-        self.__validar_contrato_inicio(valor)
+        self.__verificar_contrato_inicio_vazio(valor)
+        # self.__validar_contrato_inicio(valor)
 
         self.contrato_inicio = valor
         return self.contrato_inicio
@@ -21,12 +22,17 @@ class PrestacaoServico(Juridica):
     def __verificar_contrato_inicio_tipo_invalido(self, valor):
         """Método auxiliar para verificação de tipo para início de contrato"""
         if not isinstance(valor, str):
-            raise TypeError("O inicio de contrato deve ser alfa-númerico")
+            raise TypeError("O inicio de contrato deve ser alfa-númerico.")
+        
+    # Método auxiliar.
+    def __verificar_contrato_inicio_vazio(self, valor):
+        if not valor.strip():
+            raise ValueError("O início do contrato não pode estar vazio.")
 
-    # Método auxiliar.    
-    def __validar_contrato_inicio(self, valor):
-        if self.contrato_inicio >= self.contrato_fim:
-            raise ValueError("O início do contrato deve ser anterior ao fim do contrato")
+    # # Método auxiliar.    
+    # def __validar_contrato_inicio(self, valor):
+    #     if self.contrato_inicio >= self.contrato_fim:
+    #         raise ValueError("O início do contrato deve ser anterior ao fim do contrato.")
         
         self.contrato_inicio = valor
         return valor
@@ -35,7 +41,8 @@ class PrestacaoServico(Juridica):
     def _verificar_contrato_fim(self, valor):
         """Método para verificação de fim de contrato"""
         self.__verificar_contrato_fim_tipo_invalido(valor)
-        self.__validar_contrato_fim(valor)
+        self.__verificar_contrato_fim_vazio(valor)
+        # self.__validar_contrato_fim(valor)
 
         self.contrato_fim = valor
         return self.contrato_fim
@@ -44,12 +51,23 @@ class PrestacaoServico(Juridica):
     def __verificar_contrato_fim_tipo_invalido(self, valor):
         """Método auxiliar para verificação de tipo para fim de contrato"""
         if not isinstance(valor, str):
-            raise TypeError("O final do contrato deve ser alfa-númerico")
-
-    # Método auxiliar.    
-    def __validar_contrato_fim(self, valor):
-        if self.contrato_fim <= self.contrato_inicio:
-            raise ValueError("O final do contrato deve ser posterior ao inicio do contrato")
+            raise TypeError("O final do contrato deve ser alfa-númerico.")
         
-        self.contrato_fim = valor
-        return valor
+     # Método auxiliar.
+    def __verificar_contrato_fim_vazio(self, valor):
+        if not valor.strip():
+            raise ValueError("O fim do contrato não pode estar vazio.")
+
+    # # Método auxiliar.    
+    # def __validar_contrato_fim(self, valor):
+    #     if self.contrato_fim <= self.contrato_inicio:
+    #         raise ValueError("O final do contrato deve ser posterior ao inicio do contrato.")
+        
+    #     self.contrato_fim = valor
+    #     return valor
+    
+    # Instanciando método abstrato.    
+    def apresentar(self):
+        return (
+            f"Nome: {self.nome}"
+        )    
