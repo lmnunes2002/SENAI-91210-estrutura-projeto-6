@@ -1,8 +1,8 @@
 import pytest
 from projeto.models.engenheiro import Engenheiro
 from projeto.tests.test_endereco import endereco_valido
-from projeto.models.enums.setor import Setor
 from projeto.models.enums.sexo import Sexo
+from projeto.models.enums.setor import Setor
 from projeto.models.enums.estado_civil import EstadoCivil
 
 @pytest.fixture
@@ -10,6 +10,18 @@ def engenheiro_valido():
     engenheiro = Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, "123456/PR")
     return engenheiro
 
+def test_crea_invalido_retorna_mensagem():
+    with pytest.raises(TypeError, match="O CREA deve ser alfa-numérico."):
+        Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, 123456)
+        
+def test_crea_vazio_retorna_mensagem():
+    with pytest.raises(ValueError, match="O CREA não pode estar vazio."):
+        Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, "")
+
+def test_crea_vazio_retorna_mensagem():
+    with pytest.raises(ValueError, match="O tamanho do CREA não pode ser menor de 9 caractéres, ou maior que 13 carácteres."):
+        Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, "123456")
+   
 def test_engenheiro_valido(engenheiro_valido):
     assert engenheiro_valido.id == 1
     assert engenheiro_valido.nome == "João da Silva"
@@ -25,6 +37,16 @@ def test_engenheiro_valido(engenheiro_valido):
     assert engenheiro_valido.setor == Setor.ENGENHARIA
     assert engenheiro_valido.salario == 8000.0
     assert engenheiro_valido.crea == "123456/PR"
+
+def test_sexo_membros():
+    assert Sexo.MASCULINO in Sexo
+    assert Sexo.FEMININO in Sexo
+
+def test_sexo_valores_validos():
+    assert Sexo.MASCULINO.caractere == "M"
+    assert Sexo.MASCULINO.texto == "Masculino"
+    assert Sexo.FEMININO.caractere == "F"
+    assert Sexo.FEMININO.texto == "Feminino"
 
 def test_setor_membros():
     assert Setor.ENGENHARIA in Setor
