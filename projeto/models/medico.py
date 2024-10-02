@@ -32,7 +32,7 @@ class Medico(Funcionario):
     # Método auxiliar.
     def __verificar_crm_tam(self, valor):
         if len(valor) != 12:
-            raise ValueError("O tamanho do CRM não pode ser menor de 9 caractéres, ou maior que 13 carácteres.")
+            raise ValueError("O tamanho do CRM não pode ser diferente de 12 caractéres.")
 
     # Instanciando método abstrato.    
     def apresentar(self):

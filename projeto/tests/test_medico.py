@@ -18,6 +18,10 @@ def test_crm_vazio_retorna_mensagem():
     with pytest.raises(ValueError, match="O CRM não pode estar vazio."):
         Medico(1, "Dr. João da Silva", "(11) 91234-5678", "joao.silva@exemplo.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "1980-05-15", "123.456.789-00", "12.345.678-9", "1234567890", Setor.SAUDE, 15000.00, "")
 
+def test_crm_tam_mensagem():
+    with pytest.raises(ValueError, match="O tamanho do CRM não pode ser diferente de 12 caractéres."):
+        Medico(1, "Dr. João da Silva", "(11) 91234-5678", "joao.silva@exemplo.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "1980-05-15", "123.456.789-00", "12.345.678-9", "1234567890", Setor.SAUDE, 15000.00, "CRM-SP 1234")
+        
 def test_medico_valido(medico_valido):
     assert medico_valido.id == 1
     assert medico_valido.nome == "Dr. João da Silva"
