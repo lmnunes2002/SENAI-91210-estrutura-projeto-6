@@ -57,3 +57,17 @@ def test_setor_valores_validos():
     assert Setor.ENGENHARIA.texto == "Engenharia"
     assert Setor.JURIDICO.texto == "Jurídico"
     assert Setor.SAUDE.texto == "Saúde"
+
+def test_estado_civil_membros():
+    assert EstadoCivil.SOLTEIRO in EstadoCivil
+    assert EstadoCivil.CASADO in EstadoCivil
+    assert EstadoCivil.SEPARADO in EstadoCivil
+    assert EstadoCivil.DIVORCIADO in EstadoCivil
+    assert EstadoCivil.VIUVO in EstadoCivil
+
+def test_estado_civil_valores_validos():
+    assert EstadoCivil.SOLTEIRO.texto == "Solteiro"
+    assert EstadoCivil.CASADO.texto == "Casado"
+    assert EstadoCivil.SEPARADO.texto == "Separado"
+    assert EstadoCivil.DIVORCIADO.texto == "Divorciado"
+    assert EstadoCivil.VIUVO.texto == "Viúvo"
