@@ -34,8 +34,8 @@ class PrestacaoServico(Juridica):
     #     if self.contrato_inicio >= self.contrato_fim:
     #         raise ValueError("O início do contrato deve ser anterior ao fim do contrato.")
         
-        self.contrato_inicio = valor
-        return valor
+    # self.contrato_inicio = valor
+    # return valor
     
     # Método para verificação.
     def _verificar_contrato_fim(self, valor):
