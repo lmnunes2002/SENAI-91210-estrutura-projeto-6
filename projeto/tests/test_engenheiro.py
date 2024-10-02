@@ -18,7 +18,7 @@ def test_crea_vazio_retorna_mensagem():
     with pytest.raises(ValueError, match="O CREA não pode estar vazio."):
         Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, "")
 
-def test_crea_vazio_retorna_mensagem():
+def test_crea_tam_mensagem():
     with pytest.raises(ValueError, match="O tamanho do CREA não pode ser menor de 9 caractéres, ou maior que 13 carácteres."):
         Engenheiro(1, "João da Silva", "1234-5678", "joao.silva@email.com", endereco_valido, Sexo.MASCULINO, EstadoCivil.CASADO, "01/01/1980", "123.456.789-00", "12.345.678-9", "1234567890", Setor.ENGENHARIA, 8000.0, "123456")
    
